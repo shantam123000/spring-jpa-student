@@ -1,5 +1,6 @@
 package com.jpa.jpaProject.serviceProviders;
 
+import com.jpa.jpaProject.models.Department;
 import com.jpa.jpaProject.models.Student;
 import com.jpa.jpaProject.repositories.StudentRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,9 @@
 package com.jpa.jpaProject.cotroller;
 
 
+import com.jpa.jpaProject.models.Department;
 import com.jpa.jpaProject.models.Student;
+import com.jpa.jpaProject.serviceProviders.DepartmentServiceImp;
 import com.jpa.jpaProject.serviceProviders.StudentServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -12,11 +14,32 @@ import java.util.List;
 public class ApiController {
 
     private final StudentServiceImp studentServiceImp;
+    private final DepartmentServiceImp departmentServiceImp;
 
     @Autowired
-    ApiController(StudentServiceImp studentServiceImp) {
+    ApiController(StudentServiceImp studentServiceImp, DepartmentServiceImp departmentServiceImp) {
         this.studentServiceImp = studentServiceImp;
+        this.departmentServiceImp = departmentServiceImp;
     }
+
+    // Department
+
+    @GetMapping("/getAllDepartment")
+    public List<Department> getDepartments() {
+        return departmentServiceImp.getAllDepartment();
+    }
+
+    @GetMapping("/getOneDepartment/{id}")
+    public Department getDepartment(@PathVariable Long id) {
+        return departmentServiceImp.getDepartment(id);
+    }
+
+    @PostMapping("/addDepartment")
+    public String addDepartment(@RequestBody List<Department> departments) {
+        return departmentServiceImp.addDepartment(departments);
+    }
+
+    // Student
 
     @GetMapping("/getAllStudents")
     public List<Student> getAllStudents() {
