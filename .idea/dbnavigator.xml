@@ -28,7 +28,8 @@
   </component>
   <component name="DBNavigator.Project.DatabaseConsoleManager">
     <connection id="94862176-605f-44d4-a721-9b6be44d7793">
-      <console name="Connection" type="STANDARD" schema="mysql" session="Main"><![CDATA[SELECT * FROM pra.student;]]></console>
+      <console name="Connection" type="STANDARD" schema="mysql" session="Main"><![CDATA[SELECT * FROM pra.Passenger_info;
+select * from pra.payment_information;]]></console>
     </connection>
     <connection id="24bde53c-2d3f-4143-a6e8-b5fc0cad37ba">
       <console name="Connection 1" type="STANDARD" schema="" session="Main" />
@@ -43,11 +44,13 @@
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
     <filter-actions connection-id="94862176-605f-44d4-a721-9b6be44d7793" dataset="pra.department" active-filter-id="" />
+    <filter-actions connection-id="94862176-605f-44d4-a721-9b6be44d7793" dataset="pra.passenger_info" active-filter-id="" />
     <filter-actions connection-id="94862176-605f-44d4-a721-9b6be44d7793" dataset="pra.student" active-filter-id="e1f92cdf-98c9-4504-8a1d-3924d6506c27">
       <filter id="e1f92cdf-98c9-4504-8a1d-3924d6506c27" name="11" temporary="false" custom-name="false" type="basic" join-type="AND">
         <condition column="student_id" operator="=" value="11" active="true" />
       </filter>
     </filter-actions>
+    <filter-actions connection-id="94862176-605f-44d4-a721-9b6be44d7793" dataset="pra.payment_information" active-filter-id="" />
   </component>
   <component name="DBNavigator.Project.EditorStateManager">
     <last-used-providers>

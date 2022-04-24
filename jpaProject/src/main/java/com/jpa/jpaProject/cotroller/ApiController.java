@@ -1,8 +1,12 @@
 package com.jpa.jpaProject.cotroller;
 
 
+import com.jpa.jpaProject.Dtos.DepartmentDataDto;
+import com.jpa.jpaProject.models.Customer;
 import com.jpa.jpaProject.models.Department;
+import com.jpa.jpaProject.models.Product;
 import com.jpa.jpaProject.models.Student;
+import com.jpa.jpaProject.serviceProviders.CustomerServiceImp;
 import com.jpa.jpaProject.serviceProviders.DepartmentServiceImp;
 import com.jpa.jpaProject.serviceProviders.StudentServiceImp;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +19,36 @@ public class ApiController {
 
     private final StudentServiceImp studentServiceImp;
     private final DepartmentServiceImp departmentServiceImp;
+    private final CustomerServiceImp customerServiceImp;
 
     @Autowired
-    ApiController(StudentServiceImp studentServiceImp, DepartmentServiceImp departmentServiceImp) {
+    ApiController(StudentServiceImp studentServiceImp, DepartmentServiceImp departmentServiceImp, CustomerServiceImp customerServiceImp) {
         this.studentServiceImp = studentServiceImp;
         this.departmentServiceImp = departmentServiceImp;
+        this.customerServiceImp = customerServiceImp;
     }
+
+
+
+    // Customer
+
+    @GetMapping("/getAllCustomer")
+    public List<Customer> getCustomers() {
+        return customerServiceImp.getAllCustomers();
+    }
+
+    @GetMapping("/getOneCustomer/{id}")
+    public DepartmentDataDto getCustomer(@PathVariable int id) {
+        DepartmentDataDto departmentDataDto = new DepartmentDataDto();
+        departmentDataDto.setCustomer(customerServiceImp.getCustomer(id));
+        return departmentDataDto;
+    }
+
+    @PostMapping("/addCustomer")
+    public void addCustomer(@RequestBody DepartmentDataDto departmentDataDto) {
+        customerServiceImp.addCustomer(departmentDataDto);
+    }
+
 
     // Department
 
